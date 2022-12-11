@@ -4,7 +4,7 @@ const cors = require("cors");
 const socketIO = require("socket.io");
 
 const app=express();
-const port= process.env.PORT ;
+const port= 8800 || process.env.PORT;
 
 
 const users=[{}];
@@ -14,7 +14,9 @@ app.get("/",(req,res)=>{
     res.send("HELL ITS WORKING");
 })
 
-const server=http.createServer(app);
+const server=http.createServer((req,res)=>{
+    res.end("HELL ITS WORKING");
+});
 
 const io=socketIO(server);
 
